@@ -1,0 +1,109 @@
+<html>
+<head>
+	<title>Contacts Screen</title>
+	<script type="text/javascript" src="js/code.js"></script>
+    <link href="css/styles.css" rel="stylesheet">	
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	
+	<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() 
+	{
+		readCookie();
+	}, false);
+	</script>
+
+	<script>
+        window.onload = function() {
+            searchFirstNameContacts();
+			document.getElementById("spacerDiv2").style.display = "none"; // Calls the function defined in script.js
+        };
+    </script>
+
+	
+	
+</head>
+<body>
+
+<h1 id="title">Contacts Management Application Legacy</h1>
+
+<div id="loggedInDiv">
+	<span id="userName"></span><br />
+	<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
+</div>
+
+<div id="spacerDiv1">
+	<button type="button" id="addContactButton" class="buttons" onclick="addContactButton();"> Add Contact</button><br />
+	<button type="button" id="refreshButton" class="buttons" onclick="goRefresh();"> Refresh </button><br />
+</div>
+
+<div id="spacerDiv2">
+	<button type="button" id="homeButton" class="buttons" onclick="goHome();">Home</button><br />
+</div>
+
+<div id="accessUIDiv">
+	<div id="firstNameSearch">
+		<input type="text" id="searchFirstNameContactText" placeholder="Search By First Name" /><br />
+		<button type="button" id="searchFirstContactButton" class="buttons" onclick="searchFirstNameContacts();"> Search Contacts By First Name </button><br />
+		<span id="contactSearchResult"></span>
+	</div>
+	<div id="lastNameSearch">
+		<input type="text" id="searchLastNameContactText" placeholder="Search By Last Name" /><br />
+		<button type="button" id="searchLastNameContactButton" class="buttons" onclick="searchLastNameContacts();"> Search Contacts By Last Name</button><br />
+		<span id="contactSearchResult"></span>
+	</div>
+	<div id="phoneSearch">
+		<input type="text" id="searchPhoneContactText" placeholder="Search By Phone Number" /><br />
+		<button type="button" id="searchPhoneContactButton" class="buttons" onclick="searchPhoneContacts();"> Search Contacts By Phone Number</button><br />
+		<span id="contactSearchResult"></span>
+	</div>
+	<div id="emailSearch">
+		<input type="text" id="searchEmailContactText" placeholder="Search By Email Address" /><br />
+		<button type="button" id="searchEmailContactButton" class="buttons" onclick="searchEmailContacts();"> Search Contacts By Email Address</button><br />
+		<span id="contactSearchResult"></span>
+	</div>
+	<div id="pageNumberLive">
+		<h2 id="title"></h2>
+	</div>
+		<div class="tables">
+				<div class="tbl-content" id="contactsTable">
+					<table id="contacts" cellpadding="0" cellspacing="0" border="0">
+						<thread>
+							<tr>
+								<th>First&nbspName</th>
+								<th>Last&nbspName</th>
+								<th>Phone</th>
+								<th>Email</th>
+								<th>Edit/Delete</th>
+							</tr>
+						</thread>
+						<tbody id="tbody"></tbody>
+					</table>
+					<button type="button" id="prevButton" class="nav" onclick="goPrevPage();"> Previous Page </button><br />  
+					<button type="button" id="nextButton" class="nav" onclick="goNextPage();"> Next Page </button><br />
+				</div>
+			</div>
+			<span id="deleteResult"></span>
+			<span id="editResult"></span>
+			<span id="addResult"></span>
+		</div>
+	</div>
+</div>
+	<div id="editContactDiv" style="display: none;">
+	<input type="text" id="editFirstName" placeholder="First Name" /><br />
+    <input type="text" id="editLastName" placeholder="Last Name" /><br />
+    <input type="text" id="editPhone" placeholder="Phone Number"/><br />
+    <input type="text" id="editEmail" placeholder="Email Address"/><br />
+    <button type="button" id="editButton" class="buttons" onclick="saveContact();">Save changes to contact</button>
+	<span id="editBlankResult"></span>
+</div>
+	<div id="addContactDiv" style="display: none;">
+	<input type="text" id="addFirstName" placeholder="First Name" /><br />
+    <input type="text" id="addLastName" placeholder="Last Name" /><br />
+    <input type="text" id="addPhone" placeholder="Phone Number"/><br />
+    <input type="text" id="addEmail" placeholder="Email Address"/><br />
+    <button type="button" id="addButton" class="buttons" onclick="addContact();">Add Contact</button>
+	<span id="addBlankResult"></span>
+</div>
+</body>
+</html>
+
