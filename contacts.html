@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contacts Screen</title>
+	<script type="text/javascript" src="js/code.js"></script>
+    <link href="css/styles.css" rel="stylesheet">	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() 
+	{
+		readCookie();
+	}, false);
+	</script>
+
+	<script>
+        window.onload = function() {
+            searchContacts();
+			document.getElementById("spacerDiv2").style.display = "none"; // Calls the function defined in script.js
+        };
+    </script>
+
+	
+	
+</head>
+<body>
+
+
+	<div id="topBar">
+	
+	<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
+	<button type="button" id="homeButton" class="buttons" onclick="goHome();"><i class=" fa fa-home"></i></button><br />
+	
+ <!-- got rid of logoutdiv-->
+	</div>
+	<div id="spacerDiv1">
+	
+	
+	</div>
+	<div id="pageNameDisplay">
+		<h2 id="name"></h2>
+	</div>
+	<span id="userName"></span><br />
+
+
+<div id="spacerDiv2">
+	
+</div>
+
+<div id="accessUIDiv">
+	<div id = middleBar>
+		<button type="button" id="refreshButton" class="buttons" onclick="goRefresh();"> <i class=" fa fa-refresh"></i> </button>
+	<div id="allFieldSearch">
+		
+		<input type="text" id="searchContactText" placeholder="Search" onkeydown="if(event.key==='Enter'){ searchContacts(); }" /><!--GOT RID OF THIS LINE BREAK-->
+		<button type="button" id="searchContactButton" class="buttons" onclick="searchContacts();"> <i class=" fa fa-search"></i> </button> 
+		<script>
+    const fieldSearchIds = ['searchContactText'];
+
+    fieldSearchIds.forEach(id => {
+      const input = document.getElementById(id);
+      if (input) {
+        input.addEventListener('input', searchContacts);
+      }
+	  
+    });
+  </script>
+  
+	</div>
+	<button type="button" id="addContactButton" class="buttons" onclick="addContactButton();"> <i class=" fa fa-plus"></i></button></button>
+	</div>
+	<div id="pageNumberLive">
+		<h2 id="title"></h2>
+	</div>
+		<div class="tables">
+				<div class="tbl-content" id="contactsTable">
+					<table id="contacts" cellpadding="0" cellspacing="0" border="0">
+						<thread>
+							<tr>
+								<th>First&nbspName</th>
+								<th>Last&nbspName</th>
+								<th>Phone</th>
+								<th>Email</th>
+								<th>Edit/Delete</th>
+							</tr>
+						</thread>
+						<tbody id="tbody"></tbody>
+					</table>
+					<!--creating a div for the buttons in order to line them up -->
+					
+			</div>
+			
+		</div>
+		<div id="bottomBar">
+					<button type="button" id="prevButton" class="nav" onclick="goPrevPage();"> <i class=" fa fa-caret-left"></i> </button><br />  
+					<button type="button" id="nextButton" class="nav" onclick="goNextPage();"> <i class=" fa fa-caret-right"></i> </button><br />
+		</div>
+		<span id="deleteResult" class="PopUp"></span>
+			<span id="editResult" class="PopUp"></span>
+			<span id="addResult" class="PopUp"></span>
+			<span id="searchLengthErrorResult" class="PopUp"></span>
+			<span id="contactSearchResult" class="PopUp"></span>
+
+	</div>
+	
+</div>
+	<div id="editContactDiv" style="display: none;">
+	<label for="editFirstName">First Name:</label>
+	<input type="text" id="editFirstName" placeholder="First Name" onkeydown="if(event.key==='Enter'){ saveContact(); }" /><br>
+	<label for="editLastName">Last Name:</label>
+    <input type="text" id="editLastName" placeholder="Last Name" onkeydown="if(event.key==='Enter'){ saveContact(); }" /><br>
+	<label for="editPhone">Phone Number:</label>
+    <input type="text" id="editPhone" placeholder="Phone Number" onkeydown="if(event.key==='Enter'){ saveContact(); }" /><br>
+	<label for="editEmail">Email Address:</label>
+    <input type="text" id="editEmail" placeholder="Email Address" onkeydown="if(event.key==='Enter'){ saveContact(); }" /><br>
+    <button type="button" id="editButton" class="buttons" onclick="saveContact();">Save changes to contact</button>
+	<span id="editBlankResult" class="PopUp"> </span>
+	<span id="editFirstNameLengthErrorResult"class="PopUp"></span>
+	<span id="editLastNameLengthErrorResult" class="PopUp"></span>
+	<span id="editPhoneLengthErrorResult" class="PopUp"></span>
+	<span id="editPhonePatternErrorResult" class="PopUp"></span>
+	<span id="editEmailLengthErrorResult" class="PopUp"></span>
+	<span id="editEmailPatternErrorResult" class="PopUp"></span>
+
+	<script>
+    const fieldSaveContactIds = ['editFirstName', 'editLastName', 'editPhone', 'editEmail'];
+
+    fieldSaveContactIds.forEach(id => {
+      const input = document.getElementById(id);
+      if (input) {
+        input.addEventListener('input', saveContactErrorCheck);
+      }
+    });
+  </script>
+</div>
+	<div id="addContactDiv" style="display: none;">
+	<label for="addFirstName">First Name:</label>
+	<input type="text" id="addFirstName" placeholder="First Name" onkeydown="if(event.key==='Enter'){ addContact(); }" /><br>
+	<label for="addLastName">Last Name:</label>
+    <input type="text" id="addLastName" placeholder="Last Name" onkeydown="if(event.key==='Enter'){ addContact(); }" /><br>
+	<label for="addPhone">Phone:</label>
+    <input type="text" id="addPhone" placeholder="Phone Number" onkeydown="if(event.key==='Enter'){ addContact(); }" /><br>
+	<label for="addEmail">Email:</label>
+    <input type="text" id="addEmail" placeholder="Email Address" onkeydown="if(event.key==='Enter'){ addContact(); }" /><br>
+    <button type="button" id="addButton" class="buttons" onclick="addContact();">Add Contact</button>
+	<span id="addBlankResult" class="darkPopUp"></span>
+	<span id="addFirstNameLengthErrorResult" class="darkPopUp"></span>
+	<span id="addLastNameLengthErrorResult" class="darkPopUp"></span>
+	<span id="addPhoneLengthErrorResult" class="darkPopUp"></span>
+	<span id="addPhonePatternErrorResult" class="darkPopUp"></span>
+	<span id="addEmailLengthErrorResult" class="darkPopUp"></span>
+	<span id="addEmailPatternErrorResult" class="darkPopUp"></span>
+
+	<script>
+    const fieldAddContactIds = ['addFirstName', 'addLastName', 'addPhone', 'addEmail'];
+
+    fieldAddContactIds.forEach(id => {
+      const input = document.getElementById(id);
+      if (input) {
+        input.addEventListener('input', addContactErrorCheck);
+      }
+    });
+  </script>
+</div>
+</body>
+</html>
+

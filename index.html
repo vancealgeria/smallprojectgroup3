@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login/Register</title>
+  <script type="text/javascript" src="js/code.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="css/styles.css" rel="stylesheet">	
+
+</head>
+<body>
+
+  <script>
+    function toggleVisibility(inputId, button) {
+      const input = document.getElementById(inputId);
+      if (input) {
+        const isPassword = input.type === "password";
+        input.type = isPassword ? "text" : "password";
+        button.textContent = isPassword ? "Hide Password" : "Show Password";
+      }
+    }
+  </script>
+
+  <div id="titleBox">
+  <h1 id="title">The Jungle</h1><h2 id="subTitle">Contact Book</h2>
+  </div>
+
+  <div id="loginDiv" class="tab-content active">
+    <div class="tab-header">
+      <button class="tab-button active" data-tab="loginDiv">Login</button>
+      <button class="tab-button" data-tab="registerDiv">Register</button>
+    </div>
+    <span id="inner-title">Please Log In</span><br />
+    <label for="loginUsername">Username:</label>
+    <input type="text" id="loginUsername" placeholder="Username" onkeydown="if(event.key==='Enter'){ doLogin(); }" /><br />
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" placeholder="Password" onkeydown="if(event.key==='Enter'){ doLogin(); }" />
+    <button type="button" id="revealLoginPassButton" class="buttons" onclick="toggleVisibility('loginPassword', this)">Show Password</button>
+    <button type="button" id="loginButton" class="buttons" onclick="doLogin();">Login</button>
+    <span id="loginResult" class="darkPopUp"></span>
+    <span id="usernameLengthErrorResult"class="darkPopUp"></span>
+    <span id="passwordLengthErrorResult"class="darkPopUp"></span>
+
+    <script>
+    const fieldLoginIds = ['loginUsername', 'loginPassword'];
+
+    fieldLoginIds.forEach(id => {
+      const input = document.getElementById(id);
+      if (input) {
+        input.addEventListener('input', doLoginErrorCheck);
+      }
+    });
+  </script>
+  </div>
+
+  <div id="registerDiv" class="tab-content">
+    <div class="tab-header">
+      <button class="tab-button" data-tab="loginDiv">Login</button>
+      <button class="tab-button active" data-tab="registerDiv">Register</button>
+    </div>
+    <span id="inner-title">Please Register</span><br />
+    <label for="registerFirstName">First Name:</label>
+    <input type="text" id="registerFirstName" placeholder="First Name" onkeydown="if(event.key==='Enter'){ doRegister(); }" /><br />
+    <label for="registerLastName">Last Name:</label>
+    <input type="text" id="registerLastName" placeholder="Last Name" onkeydown="if(event.key==='Enter'){ doRegister(); }" /><br />
+    <label for="registerUsername">Username:</label>
+    <input type="text" id="registerUsername" placeholder="Username" onkeydown="if(event.key==='Enter'){ doRegister(); }" /><br />
+    <label for="registerPassword">Password:</label>
+    <input type="password" id="registerPassword" placeholder="Password" onkeydown="if(event.key==='Enter'){ doRegister(); }" /><br />
+    <label for="registerConfirmPassword">Confirm Password:</label>
+    <input type="password" id="registerConfirmPassword" placeholder="Confirm Password" onkeydown="if(event.key==='Enter'){ doRegister(); }" /><br />
+    <button type="button" id="revealRegisterPassButton" class="buttons" onclick="toggleVisibility('registerPassword', this), toggleVisibility('registerConfirmPassword', this)">Show Passwords</button>
+    <button type="button" id="registerButton" class="buttons" onclick="doRegister();">Register</button>
+    <span id="registerResult" class="darkPopUp"></span>
+    <span id="addFirstNameLengthErrorResult" class="darkPopUp"></span>
+    <span id="addLastNameLengthErrorResult" class="darkPopUp"></span>
+    <span id="addUsernameLengthErrorResult" class="darkPopUp"></span>
+    <span id="addPasswordLengthErrorResult" class="darkPopUp"></span>
+    <span id="passwordUppercaseErrorResult" class="darkPopUp"></span>
+    <span id="passwordLowercaseErrorResult" class="darkPopUp"></span>
+    <span id="passwordNumberErrorResult" class="darkPopUp"></span>
+    <span id="passwordSpecialCharErrorResult" class="darkPopUp"></span>
+    <span id="confirmPasswordLengthErrorResult" class="darkPopUp"></span>
+    <span id="confirmMatchResult" class="darkPopUp"></span>
+
+    <script>
+    const fieldRegisterIds = ['registerFirstName', 'registerLastName', 'registerUsername', 'registerPassword', 'registerConfirmPassword'];
+
+    fieldRegisterIds.forEach(id => {
+      const input = document.getElementById(id);
+      if (input) {
+        input.addEventListener('input', doRegisterErrorCheck);
+      }
+    });
+  </script>
+  </div>
+
+  <!-- One script, runs once -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const selectedTab = button.dataset.tab;
+
+            // Update tab content visibility
+            tabContents.forEach(content => {
+            content.classList.toggle('active', content.id === selectedTab);
+            });
+
+            // Update tab button active state
+            tabButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.tab === selectedTab);
+            });
+        });
+        });
+
+        // Optional: Force consistent initial state
+        const initialActiveTab = document.querySelector('.tab-content.active')?.id;
+        if (initialActiveTab) {
+        tabButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.tab === initialActiveTab);
+        });
+        }
+    });
+  </script>
+
+
+</body>
+</html>

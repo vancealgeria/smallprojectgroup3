@@ -1,0 +1,824 @@
+/* GROUP ONE */
+@font-face {
+  font-family: Jost;
+  src: url("../fonts/jost/Jost-Book.ttf");
+  font-style: normal;
+}
+@font-face {
+  font-family: Jost;
+  src: url("../fonts/jost/Jost-500-Medium.ttf");
+  font-style: medium;
+}
+
+@font-face 
+{
+  font-family: Crostan;
+  src: url("../fonts/crostan/Crostan-Regular.ttf");
+}
+@font-face 
+{
+  font-family: Crostan;
+  src: url("../fonts/crostan/Crostan-Medium.ttf");
+  font-weight:"200";
+}
+@font-face 
+{
+  font-family: Crostan;
+  src: url("../fonts/crostan/Crostan-Light.ttf");
+  font-weight:"100";
+}
+@font-face 
+{
+  font-family: Crostan;
+  src: url("../fonts/crostan/Crostan-Bold.ttf");
+  font-weight:"bold";
+}
+@font-face 
+{
+  font-family: Crostan;
+  src: url("../fonts/crostan/Crostan-SemiBold.ttf");
+  font-weight:"800";
+}
+
+    .tab-header 
+    {
+      display: flex;
+      justify-content: center;
+      /*border-bottom: 2px trans #5B3000;;*/
+      margin-bottom: 20px;
+    }
+
+    .tab-button 
+    {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: 'Crostan', regular;
+      font-size: 25px;
+      border-bottom: 3px solid transparent;
+      transition: 0.3s;
+    }
+
+    .tab-button.active 
+    {
+      border-bottom: 3px solid #5b3000;
+      color: #5B3000;
+    }
+
+    .tab-content 
+    {
+        font-family: 'Jost', regular;
+      display: none;
+      border: 1px transparent #5B3000;
+      padding: 20px;
+      border-radius: 2px;
+    }
+
+    .tab-content.active 
+    {
+      display: grid;/* used to be block*/
+      height: 80%;
+    }
+    label
+    {
+        font-family: 'Jost', normal;
+        text-align: center;
+        color:#5B3000;
+        font-size: 20px;
+    }
+
+body 
+{
+    background-image: url("../images/backgroundTest.png");
+    background-size: cover;
+    display: flex;/*tryinf out the flex display*/
+    /* need to fit sizes of pages*/
+    flex-direction: column;
+    margin: 0px;
+}
+
+
+
+#title 
+{
+    justify-self: center;
+    font-size: 120px;
+    width: 100%;
+   /* margin: 2% 10%, 10%, 10%;*/
+    text-align: center;
+    font-family: 'Crostan', bold;
+    color: #fad687;
+    margin-top: .9em;
+    margin-bottom: .1em;
+}
+
+#subTitle 
+{
+
+    font-size: 60px;
+    width: 100%;
+    float: center;
+   /* margin: 2% 10%, 10%, 10%;*/
+    text-align: center;
+    font-family: 'Crostan', bold;
+    margin-top: .1em;
+    margin-bottom: .8em;
+    
+    
+    color: #fad687;
+}
+
+#titleBox
+{
+
+    max-width: 60%;
+    /*padding-top: .2%;*/
+    padding: auto;
+    border-radius: 5px;
+    float: center;
+    display: contents;
+
+}
+
+#loginDiv
+{/*
+    font-size: 30px;
+    width: 70%;
+    margin-left: 15%;
+    padding: 25px;
+    background-color: #b2b2b2;*/
+
+    /*TODO, RESEARCH AND FIX OVERFLOW FOR RESPONSIVITY*/
+    align-self: center;
+    border-radius: 10px;
+    font-family: 'Jost', normal;
+    font-size: 30px;
+    width: 30%;
+    margin-bottom: 10%;;
+    padding-bottom: 70px;
+    background-color: #fad687;
+    text-align: center;
+}
+
+#registerDiv
+{
+    /*
+    font-size: 30px;
+    width: 70%;
+    margin-left: 15%;
+    padding: 25px;
+    background-color: #b2b2b2;*/
+    margin-top: 10%;
+    border-radius: 10px;
+    font-family: 'Jost', normal;/*for some reason being overridden*/
+    font-size: 30px;
+    width: 30%;
+    align-self: center;
+    margin-top: 1%;
+    margin-bottom: 10%;
+    padding-bottom: 70px;
+    background-color: #fad687;
+}
+    
+
+#loggedInDiv
+{
+    
+    font-size: 30px;
+    width: 70%;
+    margin-right: 50%;
+    margin-left: 10%;
+    margin-top: 1%;
+    padding-bottom: 70px;
+    background-color: #fad687;
+    
+}
+/*
+#logOutDiv
+{
+    width: max-content;
+}*/
+
+#accessUIDiv
+{
+    justify-self: center;
+    align-self: center;
+    font-size: 30px;
+    width: 70%;
+    padding: 25px;
+    /*background-color: #b2b2b2;*/
+}
+
+#editContactDiv
+{
+    font-size: 30px;
+    padding: 25px;
+    border-radius: 10px;
+    float: center;
+    display: grid;
+    background-color: #fad687;
+    min-width: 50%;
+    align-self: center;
+    margin-bottom: 20%;
+}
+#addContactDiv
+{
+    font-size: 30px;
+    padding: 25px;
+    border-radius: 10px;
+    float: center;
+    display: grid;
+    background-color: #fad687;
+    min-width: 50%;
+    align-self: center;
+    margin-bottom: 20%;
+}
+
+#middleBar
+{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    /*-content: center;*/
+}
+
+
+#topBar
+{
+    display: flex;
+    background-color: #b16f03;
+    overflow: hidden;
+    padding-left: 15%;
+    justify-content: flex-start;
+    align-items: center;
+ 
+
+}
+
+#spacerDiv1
+{
+    font-size: 30px;
+    width: 70%;
+    padding: 25px;
+
+}
+
+#spacerDiv2
+{
+    font-size: 30px;
+    width: 70%;
+    padding: 25px;
+}
+
+.buttons
+{
+    display: inline;
+    font-size: 30px;
+    border-radius: 10px;
+    width: 50%;
+    float:inherit;
+    text-align: center;
+    font-family: 'Crostan';
+    background-color: #b16f03;
+    color: #fff4d6;
+    border-width: 5px;
+    border-color: #fff4d6;
+    border-style:double;
+}
+
+.buttons:hover{
+    background-color: #00d5124f;
+    color: #fff4d6;
+    opacity: 50%;
+}
+
+
+
+#loginUsername
+{
+    border: 3px solid #5B3000;
+	font-size: 20px;
+}
+#loginPassword
+{
+    border: 3px solid #5B3000;
+	font-size: 20px;
+}
+
+#registerFirstName
+{
+    border: 3px solid #5B3000;
+	font-size: 20px;
+}
+#registerLastName
+{
+    border: 3px solid #5B3000;
+	font-size: 20px;
+}
+#registerUsername
+{
+    border: 3px solid #5B3000;
+	font-size: 20px;
+}
+#registerPassword
+{
+    border: 3px solid #5B3000;
+	font-size: 20px;
+}
+#registerConfirmPassword
+{
+    border: 3px solid #5B3000;
+	font-size: 20px;
+}
+#searchText
+{
+	font-size: 20px;
+}
+#colorText
+{
+	font-size: 20px;
+}
+
+#editFirstName
+{
+	font-size: 20px;
+}
+#editLastName
+{
+	font-size: 20px;
+}
+#editPhone
+{
+	font-size: 20px;
+}
+#editEmail
+{
+	font-size: 20px;
+}
+#editButton
+{
+    margin-left: 25%;
+}
+
+
+#addFirstName
+{
+	font-size: 20px;
+}
+#addLastName
+{
+	font-size: 20px;
+}
+#addPhone
+{
+	font-size: 20px;
+}
+#addEmail
+{
+	font-size: 20px;
+}
+#addButton
+{
+    margin-left: 25%;
+}
+
+
+
+
+#addContactButton
+{
+    justify-self: flex-end !important;
+	width: 60px;
+    height: 60px;
+    float: right;
+}
+
+#refreshButton
+{
+    justify-self: flex-start !important;
+	width: 60px;
+    height: 60px;
+    margin-left: 0%;
+    float: left;
+}
+
+#homeButton
+{
+    margin: 0%;
+    font-size: 20px;
+	width: 40px;
+    height: 40px;
+}
+
+.nav {
+  font-size: 30px;
+    border-radius: 10px;
+    width: 15%;
+    font-family: 'Jost', normal;
+}
+
+.nav:hover{
+    background-color: #00d5124f;
+    color: #fff4d6;
+    opacity: 50%;
+}
+
+
+#nextButton{
+    width: 40px;
+    height: 40px;
+    margin: 1%;
+    /*margin-top: 40%;
+    margin-bottom: 20%;*/
+    color:#5B3000;
+    background-color:#fad687;
+    border: none;
+}
+
+#prevButton{
+    width: 40px;
+    height: 40px;
+    margin: 1%;
+    /*margin-top: 40%;
+    margin-bottom: 20%;*/
+    color:#5B3000;
+    background-color: #fad687;
+    border: none;
+}
+
+.delete {
+  font-size: 15px;
+    border-radius: 10px;
+    width: 40%;
+    font-family: 'Jost', normal;
+    color: #5B3000;
+    background-color: #fad687;
+    border-color: #5B3000;
+}
+
+.delete:hover{
+    background-color: #00d5124f;
+    color: #fff4d6;
+    opacity: 50%;
+}
+
+.edit {
+    overflow-x: auto;
+  font-size: 15px;
+    border-radius: 10px;
+    width: 40%;
+    font-family: 'Jost', normal;
+    color: #5B3000;
+    border-color: #5B3000;
+    background-color: #fad687;
+}
+
+.edit:hover{
+    background-color: #00d5124f;
+    color: #fff4d6;
+    opacity: 50%;
+}
+
+#middleBar
+{
+    justify-content: space-between;
+}
+
+#allFieldSearch
+{
+    display: flex;
+    justify-self: center;
+    /*margin: 10px;*/
+    justify-content: center;
+}
+#searchContactButton {
+    align-self: center;
+    text-align: center;
+    top: 50%;
+    font-size: 15px;
+    margin-bottom: 15%;
+    width: 30px;
+    height: 30px;
+    border-style: none;
+    color: #b16f03;
+    background-color: #fff4d6;
+}
+/*need to figure out how to align, messing with these does nothing*/
+#searchContactText
+{ 
+    
+    padding: 10px;
+    height: 11px;
+    font-size: 20px;
+    display: inline;
+    border-radius: 10px, 10px, 0px, 0px;
+    /* may be something overriding this to keep it stationary*/
+}
+/* table formatting */
+#contactsTable {
+    display: block;
+    height: 500px;
+    border-width: 0px;
+    background-color: #fad687;
+    border-radius: 10px;
+    color:#5B3000;
+}
+
+
+table {
+    width:100%;
+    table-layout: fixed;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color:#5B3000;
+}
+
+.tbl-content {
+    height: 300px;
+    overflow-x: auto;
+    margin-top: 0px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+#contacts td,
+#contacts th {
+    border: 0px solid rgba(0,0,0);
+}
+
+#contacts tr:hover {
+    background-color: #fff4db;
+
+}
+
+#contacts th {
+    padding: 20px 15px;
+    text-align: center;
+    font-family: 'Jost', normal;
+    font-weight: 500;
+    font-size: 16px;
+    
+    background-color: #b2b2b200;
+    text-transform: uppercase;
+}
+
+#contacts td {
+    padding: 15px;
+    text-align: center;
+    font-family: 'Jost', normal;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 15px;
+
+    
+    background-color: #b2b2b200;
+}
+#contacts td span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 100%;
+    
+}
+
+#bottomBar
+{
+    margin-bottom: 5%;
+   display: flex; 
+   justify-content: center;
+
+}
+
+
+
+
+
+
+
+input[type="text"],input[type="password"]{
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    font-family: 'Jost', normal;
+}
+
+#inner-title{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: 'Jost', normal;
+    color: #5B3000;
+}
+
+
+
+
+
+#addResult{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: 'Jost', bold;
+    color: #fff4d6;
+}
+
+#editResult{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: 'Jost', bold;
+    color: #fff4d6;
+}
+
+#deleteResult{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: 'Jost', bold;
+    color: #fff4d6;
+}
+
+
+#userName{
+    border: #5B3000;
+    display: inline-block;
+    width: 80%;
+  
+    text-align: center;
+}
+
+#logoutButton{
+    margin: 5px;
+    font-size: 20px;
+    max-width: 130px;
+   
+}
+#loginButton{
+    
+    max-width: 130px;
+    justify-self: center;
+   
+}
+
+#registerButton{
+    max-width: 100%;
+    justify-self: center;
+   
+}
+
+
+select{
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 2%;
+    font-size: 0.75em;
+    font-family: 'Jost', normal;
+}
+
+#colorSearchResult{
+    display: none;
+}
+
+#colorAddResult{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    font-family: 'Jost', normal;
+    color: #5B3000;
+}
+/*
+#passwordUppercaseErrorResult{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: 'Jost', bold;
+
+}
+
+#passwordLowercaseErrorResult{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: 'Jost', bold;
+
+}
+
+#passwordNumberErrorResult{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: 'Jost', bold;
+}
+
+#passwordSpecialCharErrorResult{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: 'Jost', bold;
+}
+*/
+#firstNameSearch
+{
+    display: none;
+}
+#lastNameSearch
+{
+    display: none;
+}
+#phoneSearch
+{
+    display: none;
+}
+#emailSearch
+{
+    display: none;
+}
+#pageNumberLive
+{
+    text-align: center;
+    font-family: Jost, bold;
+    color: #fff4d6;
+}
+#pageNameDisplay
+{
+    margin: .5em;
+    padding: auto;
+    text-align: center;
+    font-size: 20px;
+    font-family: Jost, bold;
+    color: #fff4d6;
+}
+#revealLoginPassButton
+{
+    margin: auto;
+    margin-bottom: 5%;
+    font-size: medium;
+    font-family: Jost, normal;
+    padding: 0%;
+    border-style: none;
+    color:#5B3000;
+    background-color: #fad687;
+
+}
+
+#revealRegisterPassButton
+{
+        margin: auto;
+    margin-bottom: 5%;
+    font-size: medium;
+    font-family: Jost, normal;
+    padding: 0%;
+    border-style: none;
+    color:#5B3000;
+    background-color: #fad687;
+
+}
+.PopUp
+{
+    float: center;
+    display: block;
+    text-align: center;
+    font-family: Jost, bold;
+    color: #fff4d6;
+}
+.darkPopUp
+{
+    text-decoration: underline;
+    display: block;
+    font-size: 0.6em;
+    text-align: center;
+    font-family: Jost, bold;
+    color: #b5730c;
+}
+
